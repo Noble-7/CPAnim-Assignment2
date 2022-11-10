@@ -28,4 +28,9 @@ public class SteeringBehaviours : MonoBehaviour
 
         transform.LookAt(targets[index].transform.position);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        transform.position = -Vector3.MoveTowards(transform.position, targets[index].transform.position, speed * Time.deltaTime);
+    }
 }
