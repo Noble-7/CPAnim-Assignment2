@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 1536696625}
   - component: {fileID: 1536696624}
   - component: {fileID: 1536696623}
+  - component: {fileID: 1536696628}
   m_Layer: 0
   m_Name: moving guy
   m_TagString: Untagged
@@ -652,6 +653,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1536696628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536696622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b448f55ee15e5694aabe6be8ae2c3206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  changeTime: 3
+  speed: 1
 --- !u!1 &1607076280
 GameObject:
   m_ObjectHideFlags: 0
