@@ -27,7 +27,7 @@ public class SteeringBehaviours : MonoBehaviour
 
     void Seek()
     {
-        SteeringLab.Seek(target.position + target.velocity, rb, speed);
+        rb.AddForce(SteeringLab.Seek(target.position, rb, speed));
     }
 
     void Flee()
