@@ -17,4 +17,13 @@ public class SteeringLab
 	{
 		return Mathf.Clamp01((target - current).magnitude / length);
 	}
+
+	public static Vector3 Arrive(Vector3 target, Rigidbody current)
+	{
+		Vector3 targetDirection = (target - current.position).normalized;
+		Vector3 currentVelocity = current.velocity;
+		Vector3 desiredVelocity = targetDirection * Attenuate(target, current.position, 5f);
+		Debug.Log(desiredVelocity);
+		return desiredVelocity;
+	}
 }
