@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class SteeringBehaviours : MonoBehaviour
 {
-    public List<GameObject> targets = new List<GameObject>();
-
-    public Rigidbody target;
-
-    float time = 0f;
-    public float changeTime = 3f;
-    int index = 0;
-
     Rigidbody rb;
+
+    public Rigidbody target;    
 
     Vector3 steeringForce = Vector3.zero;
 
@@ -26,28 +20,14 @@ public class SteeringBehaviours : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //float t = 1.0f - SteeringLab.Attenuate(target.transform.position, rb.position, proxim);
-
-        time += Time.deltaTime;
-
-        if (time > changeTime)
-        {
-            index = Random.Range(0, targets.Count);
-            time = 0f;
-        }
-
-        //transform.position = Vector3.MoveTowards(transform.position, targets[index].transform.position, speed * Time.deltaTime);
-
-        //transform.LookAt(targets[index].transform.position);
-
-        Arrive();
+    {        
+        Seek();
         rb.AddForce(steeringForce);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Seek()
     {
-        transform.position = -Vector3.MoveTowards(transform.position, targets[index].transform.position, speed * Time.deltaTime);
+        SteeringLab.Seek(target.position + target.velocity, rb, speed);
     }
 
     void Flee()
